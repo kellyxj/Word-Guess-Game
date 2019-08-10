@@ -6,7 +6,33 @@
     As the user makes correct guesses, the corresponding spaces will be filled in by letters.
 */
 
-const dictionary = ["ampersand", "beloved", "destitute", "flippant", "gigantic", "splendid", "taboo"];
+const dictionary = [
+    "ampersand", "analysis",
+    "banter", "beloved", "bitterness",
+    "counter", "cosmic", 
+    "dandelion", "destitute", "delegate", 
+    "elephant", "elevator",
+    "flexible", "flippant", "function", 
+    "gigantic", "gorgeous", "griddle",
+    "hellion", "holistic", "horseradish", 
+    "illumination", "interior",
+    "janitor", "jasper",
+    "kibble", "kumquat",
+    "lopsided", "lexicon", "lampshade",
+    "masterful", "middleman",
+    "nearsighted", "notation",
+    "operative", "ornery",
+    "panther", "perennial",
+    "quagmire",
+    "raspberry", "rental", 
+    "seismic", "splendid", 
+    "taboo", "thimble",
+    "underhanded",
+    "validation", "venerated",
+    "watermelon", "whistle",
+    "yesterday",
+    "zeppelin"
+];
 const alphabet = "abcdefghijklmnopqrstuvwxyz";
 const lettersGuessed = [];
 let currentWord = "";
@@ -62,10 +88,6 @@ document.onkeyup = function (event) {
             if(!correctGuess) {
                 guesses--;
             }
-            if(guesses === 0) {
-                gameStarted = false;
-                loseState.classList.remove("hidden");
-            }
             // Checks if user has completely solved the word
             if(displayWord === currentWord) {
                 gameStarted = false;
@@ -73,6 +95,12 @@ document.onkeyup = function (event) {
                 winsDisplay.textContent = "Wins: " + wins;
                 winState.classList.remove("hidden");
             }
+            if(guesses === 0) {
+                gameStarted = false;
+                displayWord = currentWord;
+                loseState.classList.remove("hidden");
+            }
+            
         }
     }
     showWord.textContent = displayWord;
